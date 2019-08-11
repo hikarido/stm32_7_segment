@@ -2,7 +2,8 @@
 ## ugly but works!
 
 main.c contains loop which iterates through led number codes for displaying concrete number
- 
+
+* MCU - stm32f103c4
 * STM32CubeMX was used for initiating of ports
 * STM32CubeIDE was used
 * [stm32 tutors](http://mypractic.ru/urok-1-vvedenie-obshhie-svedeniya-skoree-vpechatleniya-ob-stm32.html)
