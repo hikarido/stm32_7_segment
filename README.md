@@ -1,7 +1,10 @@
 # custom 7 segment display by leds
 ## ugly but works!
 
-main.c contains loop which iterates through led number codes for displaying concrete number
+main.c contains loop which iterates through led number codes for displaying concrete number.
+
+### Upd:
+ PB11 used for listening HIGT signal about button press. When buttom is pressed next number is displaying.
 
 * MCU - stm32f103c4
 * STM32CubeMX was used for initiating of ports
@@ -11,5 +14,3 @@ main.c contains loop which iterates through led number codes for displaying conc
 ![view](imgs/view.jpg)
 ![pins out](imgs/pins_scheme.jpg)
 
-# TODO
-* add button for iteration throught numbers

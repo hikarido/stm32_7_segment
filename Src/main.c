@@ -94,16 +94,23 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int i = -1;
+  int i = 0;
   while (1)
   {
 	if(i > 8){
 		i = -1;
 	}
 
+	if(HAL_GPIO_ReadPin(GPIOB, BTN_Pin) == GPIO_PIN_SET){
+		i++;
+	}
+//	else {
+//		set_number_on_led(-1);
+//		continue;
+//	}
+
 	set_number_on_led(i);
-	HAL_Delay(1000);
-	i++;
+	HAL_Delay(250);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -160,6 +167,12 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, A_Pin|F_Pin|E_Pin|D_Pin 
                           |C_Pin|B_Pin|G_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : BTN_Pin */
+  GPIO_InitStruct.Pin = BTN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(BTN_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : A_Pin F_Pin E_Pin D_Pin 
                            C_Pin B_Pin G_Pin */
