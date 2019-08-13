@@ -16,5 +16,5 @@ main.c contains loop which iterates through led number codes for displaying conc
 
 ### Upd2
 Bought normal 7 segment indicator with shared anode. Revert set signals to reset. And get good indication of numbers.
-![view2][imgs/view_2.jpg]
-![pin_scheme_2][imgs/pin_scheme_2.jpg]
+![view_2](imgs/view_2.jpg) 
+![pin_scheme_2](imgs/pin_scheme_2.jpg)
