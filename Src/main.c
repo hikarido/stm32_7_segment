@@ -104,13 +104,9 @@ int main(void)
 	if(HAL_GPIO_ReadPin(GPIOB, BTN_Pin) == GPIO_PIN_SET){
 		i++;
 	}
-//	else {
-//		set_number_on_led(-1);
-//		continue;
-//	}
 
 	set_number_on_led(i);
-	HAL_Delay(250);
+	HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -194,10 +190,11 @@ static void MX_GPIO_Init(void)
 void set_number_on_led(int number){
 	// E sing for errors
 	if(number < 0 || number > 8){
+		clear_leds();
 		HAL_GPIO_WritePin(
 			GPIOB,
 			A_Pin | F_Pin | E_Pin | D_Pin | G_Pin,
-			GPIO_PIN_SET
+			GPIO_PIN_RESET
 		);
 		return;
 	}
@@ -245,13 +242,13 @@ void set_number_on_led(int number){
 	}
 
 	clear_leds();
-	HAL_GPIO_WritePin(GPIOB, outs_for_number, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOB, outs_for_number, GPIO_PIN_RESET);
 }
 
 void clear_leds(){
 	uint16_t leds = A_Pin | B_Pin | C_Pin |
 			        D_Pin | E_Pin | F_Pin | G_Pin;
-	HAL_GPIO_WritePin(GPIOB, leds, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB, leds, GPIO_PIN_SET);
 }
 /* USER CODE END 4 */
 
